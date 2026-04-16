@@ -1,0 +1,177 @@
+# Create products
+POST http://localhost:3000/products
+Content-Type: application/json
+
+{
+  "name": "iPhone 15",
+  "price": 999.99,
+  "stock": 50,
+  "category": "Electronics"
+}
+
+###
+
+POST http://localhost:3000/products
+Content-Type: application/json
+
+{
+  "name": "Samsung TV",
+  "price": 499.99,
+  "stock": 20,
+  "category": "Electronics"
+}
+
+###
+
+POST http://localhost:3000/products
+Content-Type: application/json
+
+{
+  "name": "Running Shoes",
+  "price": 89.99,
+  "stock": 100,
+  "category": "Sports"
+}
+
+###
+
+POST http://localhost:3000/products
+Content-Type: application/json
+
+{
+  "name": "Notebook",
+  "price": 4.99,
+  "stock": 200,
+  "category": "Stationery"
+}
+
+###
+
+# Read operations
+GET http://localhost:3000/products
+
+###
+
+GET http://localhost:3000/products/1
+
+###
+
+GET http://localhost:3000/products/999
+
+###
+
+GET http://localhost:3000/products/category/Electronics
+
+###
+
+GET http://localhost:3000/products/search?keyword=phone
+
+###
+
+GET http://localhost:3000/products/search?keyword=s
+
+###
+
+# Update and toggle
+PATCH http://localhost:3000/products/1
+Content-Type: application/json
+
+{
+  "price": 899.99,
+  "stock": 45
+}
+
+###
+
+PATCH http://localhost:3000/products/1
+Content-Type: application/json
+
+{
+  "name": ""
+}
+
+###
+
+PUT http://localhost:3000/products/1
+Content-Type: application/json
+
+{
+  "name": "iPhone 15 Pro",
+  "price": 1099.99,
+  "stock": 30,
+  "category": "Electronics"
+}
+
+###
+
+PUT http://localhost:3000/products/1
+Content-Type: application/json
+
+{
+  "price": 799.99
+}
+
+###
+
+PATCH http://localhost:3000/products/1/toggle
+
+###
+
+PATCH http://localhost:3000/products/1/toggle
+
+###
+
+# Delete checks
+DELETE http://localhost:3000/products/4
+
+###
+
+DELETE http://localhost:3000/products/4
+
+###
+
+GET http://localhost:3000/products
+
+###
+
+# Validation checks
+POST http://localhost:3000/products
+Content-Type: application/json
+
+{
+  "price": 25,
+  "stock": 5,
+  "category": "Books"
+}
+
+###
+
+POST http://localhost:3000/products
+Content-Type: application/json
+
+{
+  "name": "Invalid Item",
+  "price": -5,
+  "stock": 5,
+  "category": "Books"
+}
+
+###
+
+POST http://localhost:3000/products
+Content-Type: application/json
+
+{
+  "name": "Extra Field Item",
+  "price": 10,
+  "stock": 5,
+  "category": "Books",
+  "unexpectedField": "not allowed"
+}
+
+###
+
+POST http://localhost:3000/products
+Content-Type: application/json
+
+{}
